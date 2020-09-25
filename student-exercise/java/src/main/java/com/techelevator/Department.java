@@ -5,16 +5,22 @@ public class Department {
 	private String name;
 	
 	public Department(int departmentId, String name) {
-		}
+		this.departmentId = departmentId;
+		this.name = name;
+	}
+	
 		public int getDepartmentId() {
 			return this.departmentId;
 		}
+		
 		public String getName() {
 			return this.name;
 		}
+		
 		public void setDepartmentId() {
 			this.departmentId = departmentId;
 		}
+		
 		public void setName() {
 			this.name = name;
 		}

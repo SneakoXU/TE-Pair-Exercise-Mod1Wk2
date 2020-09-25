@@ -1,7 +1,9 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
 
@@ -11,7 +13,9 @@ public class Application {
      * @param args
      */
 	
-	List<De>
+	public static List<Department> departments = new ArrayList<Department>();
+	public static List<Employee> employees = new ArrayList<Employee>();
+	public static Map<String, Project> projects = new HashMap<String, Project>();
     public static void main(String[] args) {
 
         // create some departments
@@ -25,6 +29,7 @@ public class Application {
         createEmployees();
 
         // give Angie a 10% raise, she is doing a great job!
+        //.raiseSalary();
 
         // print all employees
         printEmployees();
@@ -42,17 +47,22 @@ public class Application {
     /**
      * Create departments and add them to the collection of departments
      */
-    private static void createDepartments(List<String> departments) {
+    private static void createDepartments() {
     	Department marketing = new Department(001, "Marketing");
     	departments.add(marketing);
-    	departments.add(002, "Sales");
-    	departments.add(003, "Engineering");
+    	Department sales = new Department(002, "Sales");
+    	departments.add(sales);
+    	Department engineering = new Department(003, "Engineering");
+    	departments.add(engineering);
     }
 
     /**
      * Print out each department in the collection.
      */
     private static void printDepartments() {
+    	for(Department department : departments) {
+    		System.out.println(department.getName());
+    	}
         System.out.println("------------- DEPARTMENTS ------------------------------");
 
     }
@@ -61,7 +71,17 @@ public class Application {
      * Create employees and add them to the collection of employees
      */
     private static void createEmployees() {
-
+    	Employee dJohnson = new Employee();
+    	dJohnson.setEmployeeId(001);
+    	dJohnson.setFirstName("Dean");
+    	dJohnson.setLastName("Johnson");
+    	dJohnson.setEmail("djohnson@teams.com");
+    	dJohnson.setSalary(60000);
+    	dJohnson.setDepartment(departments);
+    	dJohnson.setHireDate("08/21/2020");
+    	Employee aSmith = new Employee(002, "Angie", "Smith", "asmith@teams.com", 60000, departments, "08/21/2020");
+    	Employee mThompson = new Employee(003, "Margaret", "Thompson", "mthompson@teams.com", 60000, departments, "08/21/2020");
+    			
     }
 
     /**
@@ -69,14 +89,16 @@ public class Application {
      */
     private static void printEmployees() {
         System.out.println("\n------------- EMPLOYEES ------------------------------");
-
+        for(Employee employee : employees) {
+        	
+        }
     }
 
     /**
      * Create the 'TEams' project.
      */
     private static void createTeamsProject() {
-
+    	Project teams = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
     }
 
     /**
