@@ -10,10 +10,13 @@ public class Application {
      * The main entry point in the application
      * @param args
      */
+	
+	List<De>
     public static void main(String[] args) {
 
         // create some departments
-        createDepartments(001, "Marketing");
+        
+    	createDepartments();
         
         // print each department by name
         printDepartments();
@@ -40,8 +43,8 @@ public class Application {
      * Create departments and add them to the collection of departments
      */
     private static void createDepartments(List<String> departments) {
-    	Department addDepartments = new Department(departments);
-    	departments.add(001, "Marketing");
+    	Department marketing = new Department(001, "Marketing");
+    	departments.add(marketing);
     	departments.add(002, "Sales");
     	departments.add(003, "Engineering");
     }
