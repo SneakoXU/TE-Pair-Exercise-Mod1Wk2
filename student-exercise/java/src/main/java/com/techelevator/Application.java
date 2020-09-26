@@ -60,10 +60,10 @@ public class Application {
      * Print out each department in the collection.
      */
     private static void printDepartments() {
+    	System.out.println("------------- DEPARTMENTS ------------------------------");
     	for(Department department : departments) {
     		System.out.println(department.getName());
     	}
-        System.out.println("------------- DEPARTMENTS ------------------------------");
 
     }
 
@@ -79,7 +79,7 @@ public class Application {
     	dJohnson.setSalary(60000D);
     	dJohnson.setDepartment(departments.get(2));		  	
     	dJohnson.setHireDate("08/21/2020");
-    	Employee aSmith = new Employee(002, "Angie", "Smith", "asmith@teams.com", departments.get(0), "08/21/2020");
+    	Employee aSmith = new Employee(002, "Angie", "Smith", "asmith@teams.com", departments.get(2), "08/21/2020");
     	Employee mThompson = new Employee(003, "Margaret", "Thompson", "mthompson@teams.com", departments.get(0), "08/21/2020");
     			
     	employees.add(dJohnson);
@@ -93,8 +93,7 @@ public class Application {
     private static void printEmployees() {
         System.out.println("\n------------- EMPLOYEES ------------------------------");
         for(Employee employee : employees) {
-        	//for(Department department : departments) {
-        	System.out.println(employee.getFullName() + " " + employee.getSalary() + " " + employee.getDepartment().getName());
+        System.out.println(employee.getFullName() + " (" + employee.getSalary() + ") " + employee.getDepartment().getName());
         
        // }
     }
@@ -105,10 +104,8 @@ public class Application {
      */
     private static void createTeamsProject() {
     	Project teams = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
-//    	projects.put(employees.get(0).getFullName(), teams);
-//    	projects.put(employees.get(1).getFullName(), teams);
-   	for(Employee employee : employees) {
-    	if(employee.getDepartment().getName().equals("Engineering")) {
+    	for(Employee employee : employees) {
+    		if(employee.getDepartment().getName().equals("Engineering")) {
     			teams.getTeamMembers().add(employee);
    
     		}
@@ -119,14 +116,13 @@ public class Application {
      * Create the 'Marketing Landing Page' project.
      */
     private static void createLandingPageProject() {
-    	Project teams2 = new Project("Marketing Landing Page", "Lead Capture Landing Page for marketing", "10/10/2020", "10/17/2020");
-    	//projects.put(employees.get(2).getFullName(), teams);
-    	for(Employee employee : employees) {
-    		if(employee.getDepartment().getName().equals("Marketing")) {
-    			teams2.getTeamMembers().add(employee);
-   
-    		}
-    	}projects.put(teams2.getName(), teams2);
+    	Project landingPageProject = new Project("Marketing Landing Page", "Lead Capture Landing Page for Marketing", "10/10/2020", "10/17/2020");
+    	   	for(Employee employee : employees) {
+    	   		if(employee.getDepartment().getName().equals("Marketing")) {
+    	   			landingPageProject.getTeamMembers().add(employee);
+       	   		}
+    	   	}
+    	   	projects.put(landingPageProject.getName(), landingPageProject);
     }
 
     /**

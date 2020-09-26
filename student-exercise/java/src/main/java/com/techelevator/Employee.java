@@ -1,7 +1,6 @@
 package com.techelevator;
 
 import java.util.List;
-import java.text.NumberFormat;
 
 public class Employee {
 	private long employeeId;
@@ -56,7 +55,7 @@ public class Employee {
 	}
 	
 	public String getFullName() {
-		return firstName + " " + lastName;
+		return lastName + ", " + firstName;
 	}
 	
 	public void setEmployeeId(long employeeId) {
