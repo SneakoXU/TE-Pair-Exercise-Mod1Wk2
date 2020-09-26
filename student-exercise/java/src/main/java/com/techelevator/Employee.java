@@ -9,11 +9,11 @@ public class Employee {
 	private String lastName;
 	private String email;
 	private double salary = 60000D;
-	private List<Department> department;
+	private Department department;
 	private String hireDate;
 	private String fullName;
 	
-	public Employee(long employeeId, String firstName, String lastName, String email, double salary, List<Department> department, String hireDate) {
+	public Employee(long employeeId, String firstName, String lastName, String email, double salary, Department department, String hireDate) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -47,7 +47,7 @@ public class Employee {
 		return this.salary;
 	}
 	
-	public List<Department> getDepartment() {
+	public Department getDepartment() {
 		return this.department;
 	}
 	
@@ -84,7 +84,7 @@ public class Employee {
 		//NumberFormat fmt = NumberFormat.getCurrencyInstance();
 	}
 	
-	public void setDepartment(List<Department> department) {
+	public void setDepartment(Department department) {
 		this.department = department;
 	}
 	

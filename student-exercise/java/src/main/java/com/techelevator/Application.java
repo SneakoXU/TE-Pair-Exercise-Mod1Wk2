@@ -29,7 +29,7 @@ public class Application {
         createEmployees();
 
         // give Angie a 10% raise, she is doing a great job!
-        //.raiseSalary();
+        
 
         // print all employees
         printEmployees();
@@ -77,10 +77,10 @@ public class Application {
     	dJohnson.setLastName("Johnson");
     	dJohnson.setEmail("djohnson@teams.com");
     	dJohnson.setSalary(60000D);
-    	dJohnson.setDepartment(departments);
+    	dJohnson.setDepartment(departments.get(2));		  	
     	dJohnson.setHireDate("08/21/2020");
-    	Employee aSmith = new Employee(002, "Angie", "Smith", "asmith@teams.com", 60000, departments, "08/21/2020");
-    	Employee mThompson = new Employee(003, "Margaret", "Thompson", "mthompson@teams.com", 60000, departments, "08/21/2020");
+    	Employee aSmith = new Employee(002, "Angie", "Smith", "asmith@teams.com", 60000, departments.get(0), "08/21/2020");
+    	Employee mThompson = new Employee(003, "Margaret", "Thompson", "mthompson@teams.com", 60000, departments.get(0), "08/21/2020");
     			
     	employees.add(dJohnson);
     	employees.add(aSmith);
@@ -93,10 +93,10 @@ public class Application {
     private static void printEmployees() {
         System.out.println("\n------------- EMPLOYEES ------------------------------");
         for(Employee employee : employees) {
-        	for(Department department : departments) {
-        	System.out.println(employee.getFullName() + " " + employee.getSalary() + " " + department.getName());
+        	//for(Department department : departments) {
+        	System.out.println(employee.getFullName() + " " + employee.getSalary() + " " + employee.getDepartment().getName());
         
-        }
+       // }
     }
     }
 
@@ -105,8 +105,9 @@ public class Application {
      */
     private static void createTeamsProject() {
     	Project teams = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
-    	projects.put("Dean Johnson", teams);
-    	projects.put("Angie Smith", teams);
+    	projects.put(employees.get(0).getFullName(), teams);
+    	projects.put(employees.get(1).getFullName(), teams);
+    	
     }
 
     /**
@@ -114,7 +115,7 @@ public class Application {
      */
     private static void createLandingPageProject() {
     	Project teams = new Project("Marketing Landing Page", "Lead Capture Landing Page for marketing", "10/10/2020", "10/17/2020");
-    	projects.put("Margaret Thompson", teams);
+    	projects.put(employees.get(2).getFullName(), teams);
     }
 
     /**
