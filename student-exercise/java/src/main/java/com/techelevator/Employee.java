@@ -8,17 +8,17 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private double salary = 60000D;
+	private double salary;
 	private Department department;
 	private String hireDate;
 	private String fullName;
 	
-	public Employee(long employeeId, String firstName, String lastName, String email, double salary, Department department, String hireDate) {
+	public Employee(long employeeId, String firstName, String lastName, String email, Department department, String hireDate) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.salary = salary;
+		this.salary = 60000;
 		this.department = department;
 		this.hireDate = hireDate;
 		
@@ -81,6 +81,7 @@ public class Employee {
 	
 	public void setSalary(double salary) {
 		this.salary = salary;
+		//salary = 60000;
 		//NumberFormat fmt = NumberFormat.getCurrencyInstance();
 	}
 	
@@ -93,7 +94,7 @@ public class Employee {
 	}
 	
 	public double raiseSalary(double percent) {
-		return salary * percent;
+		return salary = salary * (1 + percent/100);
 	}
 }
 

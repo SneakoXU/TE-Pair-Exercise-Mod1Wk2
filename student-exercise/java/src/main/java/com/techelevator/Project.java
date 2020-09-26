@@ -1,5 +1,6 @@
 package com.techelevator;
 
+
 import java.util.List;
 
 public class Project {
@@ -7,13 +8,14 @@ public class Project {
 	private String description;
 	private String startDate;
 	private String dueDate;
-	private List<String>teamMembers;
+	private List<Employee>teamMembers;
 
 	public Project(String name, String description, String startDate, String dueDate) {
 	
 		this.name = name;
 		this.description = description;
 		this.startDate = startDate;
+		this.teamMembers = teamMembers;
 		this.dueDate = dueDate;
 	}
 	
@@ -33,7 +35,7 @@ public class Project {
 		return this.dueDate;
 	}
 	
-	public List<String> getTeamMembers() {
+	public List<Employee> getTeamMembers() {
 		return this.teamMembers;
 	}
 	
