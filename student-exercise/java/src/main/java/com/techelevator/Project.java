@@ -7,7 +7,7 @@ public class Project {
 	private String description;
 	private String startDate;
 	private String dueDate;
-	List<String>teamMembers;
+	private List<String>teamMembers;
 
 	public Project(String name, String description, String startDate, String dueDate) {
 	

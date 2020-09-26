@@ -76,12 +76,15 @@ public class Application {
     	dJohnson.setFirstName("Dean");
     	dJohnson.setLastName("Johnson");
     	dJohnson.setEmail("djohnson@teams.com");
-    	dJohnson.setSalary(60000);
+    	dJohnson.setSalary(60000D);
     	dJohnson.setDepartment(departments);
     	dJohnson.setHireDate("08/21/2020");
     	Employee aSmith = new Employee(002, "Angie", "Smith", "asmith@teams.com", 60000, departments, "08/21/2020");
     	Employee mThompson = new Employee(003, "Margaret", "Thompson", "mthompson@teams.com", 60000, departments, "08/21/2020");
     			
+    	employees.add(dJohnson);
+    	employees.add(aSmith);
+    	employees.add(mThompson);
     }
 
     /**
@@ -90,8 +93,11 @@ public class Application {
     private static void printEmployees() {
         System.out.println("\n------------- EMPLOYEES ------------------------------");
         for(Employee employee : employees) {
-        	
+        	for(Department department : departments) {
+        	System.out.println(employee.getFullName() + " " + employee.getSalary() + " " + department.getName());
+        
         }
+    }
     }
 
     /**
@@ -99,13 +105,16 @@ public class Application {
      */
     private static void createTeamsProject() {
     	Project teams = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
+    	projects.put("Dean Johnson", teams);
+    	projects.put("Angie Smith", teams);
     }
 
     /**
      * Create the 'Marketing Landing Page' project.
      */
     private static void createLandingPageProject() {
-
+    	Project teams = new Project("Marketing Landing Page", "Lead Capture Landing Page for marketing", "10/10/2020", "10/17/2020");
+    	projects.put("Margaret Thompson", teams);
     }
 
     /**
@@ -113,7 +122,11 @@ public class Application {
      */
     private static void printProjectsReport() {
         System.out.println("\n------------- PROJECTS ------------------------------");
-
+        int counter = 0;
+        for(Map.Entry<String, Project> team : projects.entrySet()) {
+        	counter++;
+        }
+        System.out.println("TEams" + " " + counter);
     }
 
 }

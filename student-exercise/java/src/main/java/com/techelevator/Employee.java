@@ -1,17 +1,18 @@
 package com.techelevator;
 
 import java.util.List;
+import java.text.NumberFormat;
 
 public class Employee {
 	private long employeeId;
 	private String firstName;
 	private String lastName;
 	private String email;
-	private double salary = 60000;
+	private double salary = 60000D;
 	private List<Department> department;
 	private String hireDate;
-	private String fullName = lastName + "," + firstName;
-
+	private String fullName;
+	
 	public Employee(long employeeId, String firstName, String lastName, String email, double salary, List<Department> department, String hireDate) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
@@ -55,7 +56,7 @@ public class Employee {
 	}
 	
 	public String getFullName() {
-		return this.fullName;
+		return firstName + " " + lastName;
 	}
 	
 	public void setEmployeeId(long employeeId) {
@@ -70,12 +71,17 @@ public class Employee {
 		this.lastName = lastName; 
 	}
 	
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	
 	public void setSalary(double salary) {
 		this.salary = salary;
+		//NumberFormat fmt = NumberFormat.getCurrencyInstance();
 	}
 	
 	public void setDepartment(List<Department> department) {
